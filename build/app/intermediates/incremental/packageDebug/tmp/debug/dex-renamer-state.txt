@@ -1,0 +1,4 @@
+#Fri May 03 17:10:05 KST 2024
+base.0=C\:\\Users\\dnjs8\\StudioProjects\\BlinkList\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
+path.0=classes.dex
+renamed.0=classes.dex
