@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'animalItem.dart';
+import 'iosSub/cupertinoFirstPage.dart';
+import 'iosSub/cupertinoSecondPage.dart';
 
 class CupertinoMain extends StatefulWidget {
   @override
@@ -10,24 +12,16 @@ class CupertinoMain extends StatefulWidget {
 
 class _CupertinoMain extends State<CupertinoMain>{
   CupertinoTabBar? tabBar;
-  List<Animal> AnimalList =List.empty(growable: true);
+  List<Animal> animalList =List.empty(growable: true);
   @override
   Widget build(BuildContext context) {
     return CupertinoApp(
       home: CupertinoTabScaffold(tabBar: tabBar!,
           tabBuilder: (context,value){
         if (value==0){
-          return Container(
-            child: Center(
-              child: Text('cupertino tab1'),
-            ),
-          );
+              return CupertinoFirstPage(animalList: animalList);
         }else {
-          return Container(
-            child: Center(
-              child: Text('cupertino tab2'),
-            ),
-          );
+          return CupertinoSecondPage(animalList: animalList);
         }
           }
       ),
@@ -42,14 +36,14 @@ class _CupertinoMain extends State<CupertinoMain>{
       BottomNavigationBarItem(icon: Icon(CupertinoIcons.add)),
     ]);
 
-    AnimalList.add(Animal(animalName: "bee",kind: "animal",imagePath:"repo/images/bee.png"));
-    AnimalList.add(Animal(animalName: "cow",kind: "animal",imagePath:"repo/images/cow.png"));
-    AnimalList.add(Animal(animalName: "cat",kind: "animal",imagePath:"repo/images/cat.png"));
-    AnimalList.add(Animal(animalName: "fox",kind: "animal",imagePath:"repo/images/fox.png"));
-    AnimalList.add(Animal(animalName: "dog",kind: "animal",imagePath:"repo/images/dog.png"));
-    AnimalList.add(Animal(animalName: "monkey",kind: "animal",imagePath:"repo/images/monkey.png"));
-    AnimalList.add(Animal(animalName: "wolf",kind: "animal",imagePath:"repo/images/wolf.png"));
-    AnimalList.add(Animal(animalName: "pig",kind: "animal",imagePath:"repo/images/pig.png"));
+    animalList.add(Animal(animalName: "bee",kind: "animal",imagePath:"repo/images/bee.png"));
+    animalList.add(Animal(animalName: "cow",kind: "animal",imagePath:"repo/images/cow.png"));
+    animalList.add(Animal(animalName: "cat",kind: "animal",imagePath:"repo/images/cat.png"));
+    animalList.add(Animal(animalName: "fox",kind: "animal",imagePath:"repo/images/fox.png"));
+    animalList.add(Animal(animalName: "dog",kind: "animal",imagePath:"repo/images/dog.png"));
+    animalList.add(Animal(animalName: "monkey",kind: "animal",imagePath:"repo/images/monkey.png"));
+    animalList.add(Animal(animalName: "wolf",kind: "animal",imagePath:"repo/images/wolf.png"));
+    animalList.add(Animal(animalName: "pig",kind: "animal",imagePath:"repo/images/pig.png"));
   }
 
 }
