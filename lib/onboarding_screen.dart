@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:liquid_swipe/liquid_swipe.dart';
 import 'package:blink_list/home_page.dart';
 import 'package:blink_list/intro_screens/intro_page_1.dart';
+import 'package:blink_list/Calender.dart';
 
 class OnBoardingScreen extends StatefulWidget {
   const OnBoardingScreen({Key? key}) : super(key: key);
@@ -21,6 +22,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
         pages: [
           IntroPage1(),
           HomePage(),
+          SalaryCalendarPage(),
         ],
         onPageChangeCallback: (page) {
           setState(() {

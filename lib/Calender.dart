@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:table_calendar/table_calendar.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:intl/intl.dart';
 
 void main() {
+
   runApp(MyApp());
 }
 
@@ -62,13 +64,19 @@ class _SalaryCalendarPageState extends State<SalaryCalendarPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Salary Calendar')
+        title: Text('월급 계산 달력'),
       ),
       body: Column(
         children: [
           TableCalendar(
+            locale: 'ko_KR',
             firstDay: DateTime.utc(2010, 10, 16),
             lastDay: DateTime.utc(2030, 3, 14),
+          headerStyle: HeaderStyle(
+              titleCentered: true,
+              formatButtonVisible: false,
+          ),
+
             focusedDay: _selectedDay,
             selectedDayPredicate: (day) => isSameDay(_selectedDay, day),
             onDaySelected: (selectedDay, focusedDay) {
@@ -78,6 +86,7 @@ class _SalaryCalendarPageState extends State<SalaryCalendarPage> {
               _showInputDialog(selectedDay);
             },
             eventLoader: (day) {
+
               return _salaries.containsKey(day) ? [ _salaries[day]! ] : [];
             },
             calendarBuilders: CalendarBuilders(
@@ -85,12 +94,12 @@ class _SalaryCalendarPageState extends State<SalaryCalendarPage> {
                 if (events.isNotEmpty) {
                   double salary = events.first as double;
                   return Positioned(
-                    bottom: 1,
+                    bottom: -13,
                     child: Text(
-                      '${salary.toStringAsFixed(2)} 원',
+                      '${salary.toInt()} 원',
                       style: TextStyle(
                         color: Colors.blue,
-                        fontSize: 12.0,
+                        fontSize: 14.0,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
@@ -101,7 +110,7 @@ class _SalaryCalendarPageState extends State<SalaryCalendarPage> {
             ),
           ),
           Expanded(
-              child:  Text('이번달에 번 돈: \$${_calculateTotalSalary().toStringAsFixed(2)}'),
+            child: Text('이번달에 번 돈: ${_calculateTotalSalary().toInt()}원'),
           ),
         ],
       ),
@@ -149,7 +158,4 @@ class _SalaryCalendarPageState extends State<SalaryCalendarPage> {
     });
     return totalSalary;
   }
-
 }
-
-
