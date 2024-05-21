@@ -57,6 +57,14 @@ class _MyHomePage extends State<MyHomePage> with SingleTickerProviderStateMixin 
   void initState() {
     super.initState();
     controller = TabController(length: 2, vsync: this);
+    animalList.add(Animal(animalName: "bee",kind: "animal",imagePath:"repo/images/bee.png"));
+    animalList.add(Animal(animalName: "cow",kind: "animal",imagePath:"repo/images/cow.png"));
+    animalList.add(Animal(animalName: "cat",kind: "animal",imagePath:"repo/images/cat.png"));
+    animalList.add(Animal(animalName: "fox",kind: "animal",imagePath:"repo/images/fox.png"));
+    animalList.add(Animal(animalName: "dog",kind: "animal",imagePath:"repo/images/dog.png"));
+    animalList.add(Animal(animalName: "monkey",kind: "animal",imagePath:"repo/images/monkey.png"));
+    animalList.add(Animal(animalName: "wolf",kind: "animal",imagePath:"repo/images/wolf.png"));
+    animalList.add(Animal(animalName: "pig",kind: "animal",imagePath:"repo/images/pig.png"));
   }
 
   @override
